@@ -1,4 +1,44 @@
-#map {
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+
+#map{
     width: 1200px;
     height: 600px;
+    margin: 0 auto;
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+.top-head{
+    text-align: center;
+    background-color: rgb(29, 64, 74, 0.5);
+    padding: 2rem 1rem;
+    width: 50%;
+    margin: 1.5rem auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.footer{
+    text-align: center;
+    background-color: rgb(29, 64, 74, 0.5);
+    padding: 1rem;
+    width: fit-content;
+    margin: 1.5rem auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+body{
+    background-color: #1d1a15;
+    font-family: 'Lexend', Times, serif;
+    color: white;
 }
