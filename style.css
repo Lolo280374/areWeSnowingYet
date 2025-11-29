@@ -5,12 +5,11 @@
     width: 1200px;
     height: 600px;
     margin: 0 auto;
-    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
 }
 
 .top-head{
     text-align: center;
-    background-color: rgb(29, 64, 74, 0.5);
+    background-color: rgb(9, 9, 9, 0.5);
     padding: 2rem 1rem;
     width: 50%;
     margin: 1.5rem auto;
@@ -20,7 +19,7 @@
 
 .footer{
     text-align: center;
-    background-color: rgb(29, 64, 74, 0.5);
+    background-color: rgb(9, 9, 9, 0.5);
     padding: 1rem;
     width: fit-content;
     margin: 1.5rem auto;
@@ -38,7 +37,12 @@ a:hover{
 }
 
 body{
-    background-color: #1d1a15;
+    background-color: #262626;
     font-family: 'Lexend', Times, serif;
     color: white;
+}
+
+.snow-popup{
+    text-align: center;
+    font-family: 'Lexend', Times, serif;
 }
