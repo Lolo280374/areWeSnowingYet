@@ -3,8 +3,8 @@ import json
 from datetime import datetime, timedelta
 import requests
 
-CITY_LIST = "cities-simplemaps.csv"
-SNOWING_CITIES_OUTPUT = "snowing.json"
+CITY_LIST = "serverside/cities-simplemaps.csv"
+SNOWING_CITIES_OUTPUT = "serverside/snowing.json"
 ACCEPTED_CODES = [71, 73, 75, 77, 85, 86]
 OM_API_URL = "https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lng}&current_weather=true"
 
