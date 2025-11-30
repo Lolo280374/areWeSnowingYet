@@ -9,7 +9,7 @@ data = {
     "next_refresh": next_refresh.isoformat() + "Z"
 }
 
-with open("snowing.json", "w") as f:
+with open("serverside/snowing.json", "w") as f:
     json.dump(data, f, indent=2)
 
 print(json.dumps(data, indent=2))
