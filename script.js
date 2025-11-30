@@ -21,8 +21,7 @@ fetch('https://api.arewesnowing.lolodotzip.tech/snowing.json')
         function updateCountdown() {
             const diff = nextRefresh - new Date();
             if(diff <= 0){
-                countdown.textContent = "right now!!";
-                location.reload();
+                countdown.textContent = "pretty soon!! (prob building rn)";
                 return;
             }
 
