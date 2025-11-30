@@ -1,0 +1,43 @@
+name: query API for snow data updates
+
+on:
+  schedule:
+    - cron: "0 */5 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-snow-data:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: install deps
+        run: pip install requests pandas
+
+      - name: query open-meteo
+        run: python serverside/fetchSnowStatus.py
+
+      - name: clone repo for push
+        run: |
+          git clone https://github.com/Lolo280374/api-areWeSnowingYet.git push-dir
+
+      - name: copy output file to cloned dir
+        run: cp serverside/snowing.json push-dir/snowing.json
+
+      - name: push for prod
+        run: |
+          cd push-dir
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add snowing.json
+          git commit -m "update snow data (for $(date))" || echo "no new data to push"
+          git push https://x-access-token:${{ secrets.PUSH_TOKEN }}@github.com/Lolo280374/api-areWeSnowingYet.git

@@ -11,10 +11,28 @@ var layer = new L.TileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/
 
 map.addLayer(layer);
 
-// burner test: will be remplaced by actual api later
-fetch('snowing.json')
+fetch('https://api.arewesnowing.lolodotzip.tech/snowing.json')
     .then(res => res.json())
-    .then(geoJsonData => {
+    .then(data => {
+        const geoJsonData = data.features;
+        const nextRefresh = new Date(data.next_refresh);
+
+        const countdown = document.getElementById('countdown_refresh');
+        function updateCountdown() {
+            const diff = nextRefresh - new Date();
+            if(diff <= 0){
+                countdown.textContent = "right now!!";
+                location.reload();
+                return;
+            }
+
+            const hours = Math.floor(diff / 1000 / 60 / 60);
+            const minutes = Math.floor(diff / 1000 / 60) % 60;
+            countdown.textContent = `in ${hours}h ${minutes}min`
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
         const snowLayer = L.geoJSON(geoJsonData, {
 
             pointToLayer: function(feature, latlng) {
