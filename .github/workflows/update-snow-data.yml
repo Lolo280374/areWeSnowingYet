@@ -24,7 +24,7 @@ jobs:
         run: pip install requests pandas
 
       - name: query open-meteo
-        run: python serverside/fetchSnowStatus.py
+        run: python -u serverside/fetchSnowStatus.py
 
       - name: clone repo for push
         run: |
