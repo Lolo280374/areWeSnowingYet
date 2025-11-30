@@ -65,6 +65,9 @@ fetch('https://api.arewesnowing.lolodotzip.tech/snowing.json')
             onEachFeature: function(feature, layer) {
                 const props = feature.properties;
                 const code = props.code;
+                const temp = props.temperature;
+                const unit = props.temperature_unit ?? "°C";
+
                 let weatherDescription = "snow!!!";
                 if (code === 85 || code === 86) weatherDescription = "snow showers!!";
                 if (code === 85 || code === 86) weatherDescription = "heavy snow!!!";
@@ -73,7 +76,7 @@ fetch('https://api.arewesnowing.lolodotzip.tech/snowing.json')
                     <div class="snow-popup">
                         there's <b>${weatherDescription}</b><br>
                         in <b>${props.name}, ${props.country}</b><br>
-                        expected api wx code: ${code}
+                        with currently ${temp}${unit}
                     </div>
                     `);
             }
