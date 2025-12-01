@@ -20,7 +20,7 @@ with open(CITY_LIST, newline='', encoding='utf-8') as csvfile:
             population = float(population_str)
         except ValueError:
             continue
-        if population > 100000:
+        if population > 300000:
             cities.append({
                 "name": row["city"],
                 "country": row["country"],
