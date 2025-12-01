@@ -20,7 +20,7 @@ screenshots
 <br>
 
 > [!NOTE]  
-> due to API rate limitations, and to avoid spamming the server all the time, the map is being updated automatically every 5-ish hours. sorry if that's not real real time, but otherwise it would be too much!
+> due to API rate limitations, and to avoid spamming the server all the time, the map is being updated automatically every 4-ish hours. (and only considering cities with at least 300k inhabitants). sorry if that's not real real time, but otherwise it would be too much!
 
 ## table of contents
 
@@ -39,13 +39,13 @@ the theme this week for siege was winter. and I had NO IDEA what to do. I wanted
 so yeah. here comes the inspiration from that week!
 
 ## features
-this project allows you to see in (close) time (updated every 5 hours) where the snow is in the world right now on a global earth map! it'll show you in what city the snow is located, the type (heavy snow, snow, and snow showers), and the temperature in that city! 
+this project allows you to see in (close) time (updated every 4 hours) where the snow is in the world right now on a global earth map! it'll show you in what city the snow is located, the type (heavy snow, snow, and snow showers), and the temperature in that city! 
 
 > [!TIP]
 > note that the circle on the map is only meant to indicate the city in where the event is happening, and not a certain region or part in that city! don't take it as a close indicator.
 
 ## how this was made
-so due to the fact that there's no public API exposing where snow currently is in the world right now, I had to try to make my own! the mechanism is simple: using a dataset of about 48k cities (but we'll only use about 6k here since we're only using the ones with more than 100k inhabitants), we'll check in these cities if it's snowing or not right now, if it is, we'll store the current weather condition and the temperature in a JSON file, and then display it on the map!
+so due to the fact that there's no public API exposing where snow currently is in the world right now, I had to try to make my own! the mechanism is simple: using a dataset of about 48k cities (but we'll only use about 2-3k here since we're only using the ones with more than 300k inhabitants), we'll check in these cities if it's snowing or not right now, if it is, we'll store the current weather condition and the temperature in a JSON file, and then display it on the map!
 
 if you're wondering how that JSON file looks like, turns out you can see it! to view it, [click here](https://api.arewesnowing.lolodotzip.tech/snowing.json).
 
