@@ -11,11 +11,18 @@ var layer = new L.TileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/
 
 map.addLayer(layer);
 
-fetch('https://api.arewesnowing.lolodotzip.tech/snowing.json')
+fetch('https://api.arewesnowing.lolodotzip.tech/snowing.json?t=' + Date.now())
     .then(res => res.json())
     .then(data => {
         const geoJsonData = data.features;
         const nextRefresh = new Date(data.next_refresh);
+        const buildDate = new Date(data.generated);
+        const readableBuild = buildDate.toLocaleString();
+
+        const lastBuild = document.getElementById('last_upd_refresh');
+        if (lastBuild){
+            lastBuild.textContent = `${readableBuild}`;
+        }
 
         const countdown = document.getElementById('countdown_refresh');
         function updateCountdown() {
